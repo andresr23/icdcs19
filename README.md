@@ -2,7 +2,7 @@
 
 This project is intended to demonstrate the functionality (and limitations) of utilizing Performance Monitor Counters to infer cache events within the fabric of AMD Ryzen processors. The repository includes three demonstrative programs to do so and two drivers to configure PMCs on selected physical threads (or logical cores).
 
-## A quick demonstration of Spectre
+## A Quick Demonstration of Spectre
 
 This program provides a visualization of the Spectre vulnerability that was recently found to affect AMD processors. While this program does not violate any security guarantees, it serves to demonstrate how PMCs can be utilized to infer the effects on the cache when spying on the value of a changing "secret" variable located within the program's own address space.
 
