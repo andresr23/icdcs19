@@ -1,0 +1,11 @@
+/drivers/amd/Module.symvers
+/drivers/amd/Modules.order
+/drivers/amd/pmc.ko
+/drivers/amd/pmc.mod.c
+/drivers/amd/pmc.mod.o
+/drivers/amd/pmc.o
+
+/spectre/spectre.dat
+/spectre/spectre.png
+/spectre/obj/*.o
+/spectre/spectre
