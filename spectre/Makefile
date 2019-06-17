@@ -1,9 +1,9 @@
 CC = gcc
 FLAGS = -w
 
-OBJ_L = obj
 DEP_L = include
 SRC_L = src
+OBJ_L = $(SRC_L)
 
 _DEP = cell.h
 _OBJ = main.o cache.o U.o

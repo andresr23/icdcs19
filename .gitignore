@@ -7,5 +7,5 @@
 
 /spectre/spectre.dat
 /spectre/spectre.png
-/spectre/obj/*.o
+/spectre/src/*.o
 /spectre/spectre
