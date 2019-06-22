@@ -9,3 +9,8 @@
 /spectre/spectre.png
 /spectre/src/*.o
 /spectre/spectre
+
+/zenaccess/zenaccess.dat
+/zenaccess/zenaccess.png
+/zenaccess/src/*.o
+/zenaccess/zenaccess

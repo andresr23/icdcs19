@@ -21,12 +21,13 @@ unsigned long PMC_CTRL_5 = 0xC001020A;
  * Open Source Register Reference for AMD Family 17h Processors Models 00h-2Fh,
  * Section 2.1.11 PMCs, page 150.
  */
-unsigned long PMC_0 = 0x060;	/* Requests to L2 Group1 			  */
+unsigned long PMC_0 = 0x060;	/* Requests to L2 Group1 		      */
 unsigned long PMC_1 = 0x064;	/* Core to L2 Cacheable Request Access Status */
-unsigned long PMC_2 = 0x076;	/* Cycles not in Halt   			  */
-unsigned long PMC_MASK_0 = 0x80;
-unsigned long PMC_MASK_1 = 0x40;
-unsigned long PMC_MASK_2 = 0x00;
+unsigned long PMC_2 = 0x076;	/* Cycles not in Halt   	              */
+unsigned long PMC_MASK_0_0 = 0x80;
+unsigned long PMC_MASK_0_1 = 0x02; /* Count only L2 pre-fetches for PMC 0x060 */
+unsigned long PMC_MASK_1_0 = 0x40;
+unsigned long PMC_MASK_2_0 = 0x00;
 
 /* 
  * Auxiliary function to read from a MSR. 
@@ -173,9 +174,10 @@ reset_pmc(unsigned long pmc){
  */
 static int __init
 msr_init(void){
-	config_pmc(PMC_CTRL_0, PMC_0, PMC_MASK_0);
-	config_pmc(PMC_CTRL_1, PMC_1, PMC_MASK_1);
-	config_pmc(PMC_CTRL_2, PMC_2, PMC_MASK_2);
+	config_pmc(PMC_CTRL_0, PMC_0, PMC_MASK_0_0);
+	config_pmc(PMC_CTRL_1, PMC_0, PMC_MASK_0_1);
+	config_pmc(PMC_CTRL_2, PMC_1, PMC_MASK_1_0);
+	config_pmc(PMC_CTRL_3, PMC_2, PMC_MASK_1_0);
 	enable_rdpmc(NULL);
 	return 0;
 }
@@ -190,6 +192,7 @@ msr_exit(void){
 	reset_pmc(PMC_CTRL_0);
 	reset_pmc(PMC_CTRL_1);
 	reset_pmc(PMC_CTRL_2);
+	reset_pmc(PMC_CTRL_3);
 	disable_rdpmc(NULL);
 }
 
