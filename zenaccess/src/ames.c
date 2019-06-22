@@ -28,16 +28,16 @@ create_L2_AMES(){
   int unused_count = 0;
   struct cell *_DUMMY;
   do{
+    /*
+     * If the program allocates an excessive amount of memory to create the AMES
+     * terminate the program.
+     */
     if(unused_count >= UNUSED_SIZE_AMES){
       printf("[AMES] Memory protection reached.\n");
       for(int i = 0; i < UNUSED_SIZE_AMES; i++)
         free(UNUSED_AMES[i]);
       return -1;
     }
-    /*
-     * If the program allocates an excessive amount of memory to create the AMES
-     * terminate the program.
-     */
     /* Allocate a new page */
     _DUMMY = allocate_page();
     _DUMMY[0].delta = 0xff;

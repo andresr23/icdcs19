@@ -2,8 +2,16 @@
 
 #include "../include/cell.h"
 
-#define PMC0 0x0
-#define PMC0_THR 300
+/*
+ * When configuring the PMCs by writing to their respective
+ * MSRs, they can be accessed in the order in which they were
+ * assigned in the MSRs, the first MSR can be accessed by 0x00
+ * the second one by 0x01 and so on...
+ */
+#define PMC_0 0x00 // Requests to L2 Group1, Mask: 0x80
+#define PMC_1 0x00 // Requests to L2 Group1, Mask: 0x02
+#define PMC_2 0x01 // Core to L2 Cacheable Request Access Status
+#define PMC_3 0x02 // Cycles not in Halt
 
 extern struct cell *U[L1_WAYS];
 
@@ -65,11 +73,9 @@ probe_L1D_set_pmc(unsigned int set){
 		"sub %%eax, %%ebx\n\t"
 		"neg %%ebx"
 		: "=b" (delta_pmc)
-		: "S" (address), "c" (PMC0)
+		: "S" (address), "c" (PMC_0)
 		: "memory"
 	);
-	if(delta_pmc > PMC0_THR)
-		delta_pmc = PMC0_THR;
 	U[0][set].delta = delta_pmc;
 }
 

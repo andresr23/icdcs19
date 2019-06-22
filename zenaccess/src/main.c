@@ -9,10 +9,10 @@
  * assigned in the MSRs, the first MSR can be accessed by 0x00
  * the second one by 0x01 and so on...
  */
-#define PMC_0 0x0 /* Requests to L2 Group1 		                  (0x60) */
-#define PMC_1 0x1 /* Core to L2 Cacheable Request Access Status (0x64) */
-#define PMC_2 0x2 /* Cycles not in Halt   		                  (0x76) */
-#define PMC_3 0x3 /* Fill Pending from L2                              */
+#define PMC_0 0x00 // Requests to L2 Group1, Mask: 0x80
+#define PMC_1 0x00 // Requests to L2 Group1, Mask: 0x02
+#define PMC_2 0x01 // Core to L2 Cacheable Request Access Status
+#define PMC_3 0x02 // Cycles not in Halt	                  
 
 unsigned int buffer[L2_SECTORS][2] = {};
 

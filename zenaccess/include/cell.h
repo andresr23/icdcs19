@@ -12,6 +12,10 @@
 #define L2_SECTORS 16
 #define L2_WAYS 8
 
+/* LLC Parameters for the Ryzen 1600x */
+#define LLC_WAYS 16
+#define NON_INCLUSIVE_WAYS (L2_WAYS + LLC_WAYS)
+
 /*
  * Basic Cache Line representation,
  * There are two flavors for the struct cell configuration

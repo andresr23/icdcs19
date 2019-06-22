@@ -40,9 +40,12 @@ load_X(int set){
   );
 }
 
+/*
+ * Monitor the selected PMC when reloading X.
+ */
 unsigned int
 pmc_X(int set, int pmc){
-	unsigned long delta_pmc;
+	unsigned int delta_pmc;
 	void *address = (void *)&X[set].next;
 	asm volatile(
 		"mfence\n\t"

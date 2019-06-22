@@ -1,3 +1,5 @@
+.PHONY: clean
+
 CC = gcc
 FLAGS = -w
 
@@ -19,3 +21,4 @@ default: $(OBJ) $(DEP)
 
 clean:
 	rm -f $(OBJ_L)/*.o
+	rm -f spectre

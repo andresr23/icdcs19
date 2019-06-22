@@ -1,1 +1,0 @@
-cmd_/home/andres/Documents/Proyecto1/github/drivers/amd/pmc.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/andres/Documents/Proyecto1/github/drivers/amd/pmc.ko /home/andres/Documents/Proyecto1/github/drivers/amd/pmc.o /home/andres/Documents/Proyecto1/github/drivers/amd/pmc.mod.o ;  true

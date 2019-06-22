@@ -1,3 +1,5 @@
+.PHONY: clean
+
 obj-m += pmc.o
 
 all:

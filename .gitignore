@@ -1,9 +1,13 @@
-/drivers/amd/Module.symvers
-/drivers/amd/Modules.order
+Module.symvers
+Modules.order
 /drivers/amd/pmc.ko
 /drivers/amd/pmc.mod.c
 /drivers/amd/pmc.mod.o
 /drivers/amd/pmc.o
+/drivers/amd/.pmc.ko.cmd
+/drivers/amd/.pmc.mod.o.cmd
+/drivers/amd/.pmc.o.cmd
+/drivers/amd/.tmp_versions/pmc.mod
 
 /spectre/spectre.dat
 /spectre/spectre.png
@@ -14,3 +18,8 @@
 /zenaccess/zenaccess.png
 /zenaccess/src/*.o
 /zenaccess/zenaccess
+
+/llc/llc.dat
+/llc/llc.png
+/llc/src/*.o
+/llc/llc
